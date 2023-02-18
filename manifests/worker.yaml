@@ -16,7 +16,6 @@ spec:
       annotations:
         dapr.io/enabled: "true"
         dapr.io/app-id: myworker
-        dapr.io/app-port: "8080"
     spec:
       containers:
       - name: myworker
@@ -33,9 +32,9 @@ metadata:
   name: myworker
 spec:
   ports:
-  - port: 8080
+  - port: 3500
     protocol: TCP
-    targetPort: 8080
+    targetPort: 3500
   selector:
     app: myworker
 status:

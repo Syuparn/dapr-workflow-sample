@@ -2,8 +2,6 @@ using Dapr.Client;
 using Dapr.Workflow;
 using worker.Workflows.Activities;
 using worker.Workflows;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.DependencyInjection;
 
 // prepare workflow worker
 // The workflow host is a background service that connects to the sidecar over gRPC
@@ -35,16 +33,9 @@ while (!await daprClient.CheckHealthAsync())
     Console.WriteLine("wait for sidecar...");
     Thread.Sleep(TimeSpan.FromSeconds(5));
 }
+Console.WriteLine("connected to sidecar");
 
-// NOTE: WorkflowEngineClient will be replaced with a richer version of DaprClient
-//       in a subsequent SDK release. This is a temporary workaround.
-WorkflowEngineClient workflowClient = host.Services.GetRequiredService<WorkflowEngineClient>();
 
-// dummy app server
-var appBuilder = WebApplication.CreateBuilder(args);
-appBuilder.Services.AddControllers();
-var app = appBuilder.Build();
-app.UseHttpsRedirection();
-app.UseAuthorization();
-app.MapControllers();
-app.Run();
+while (true) {
+    // loop infinitely to wait workflows
+}
