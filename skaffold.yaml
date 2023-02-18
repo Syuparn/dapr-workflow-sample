@@ -15,12 +15,12 @@ build:
     envTemplate:
       template: "{{.IMAGE_NAME}}:latest" # NOTE: fix tag
   artifacts:
-#    - image: myapp
-#      context: app
+    - image: myapp
+      context: app
     - image: myworker
       context: worker
 manifests:
   rawYaml:
   - manifests/worker.yaml
-#  - manifests/app.yaml
+  - manifests/app.yaml
   - manifests/state.yaml
