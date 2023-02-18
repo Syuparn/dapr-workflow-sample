@@ -1,0 +1,26 @@
+apiVersion: skaffold/v4beta1
+kind: Config
+deploy:
+  helm:
+    releases:
+      - name: dapr
+        repo: https://dapr.github.io/helm-charts/
+        remoteChart: dapr
+        version: "1.10"
+      - name: redis
+        repo: https://charts.bitnami.com/bitnami
+        remoteChart: redis
+build:
+  tagPolicy:
+    envTemplate:
+      template: "{{.IMAGE_NAME}}:latest" # NOTE: fix tag
+  artifacts:
+    - image: myapp
+      context: app
+    - image: myworker
+      context: worker
+manifests:
+  rawYaml:
+  - manifests/workflow.yaml
+  - manifests/app.yaml
+  - manifests/worker.yaml
