@@ -1,25 +1,42 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
+  name: myworker
   labels:
-    app: myapp
+    app: myworker
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: myapp
+      app: myworker
   template:
     metadata:
       labels:
-        app: myapp
+        app: myworker
       annotations:
         dapr.io/enabled: "true"
-        dapr.io/app-id: myapp
+        dapr.io/app-id: myworker
         dapr.io/app-port: "8080"
     spec:
       containers:
-      - name: myapp
-        image: myapp:latest
+      - name: myworker
+        image: myworker:latest
         ports:
         - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: myworker
+  name: myworker
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: myworker
+status:
+  loadBalancer: {}

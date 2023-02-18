@@ -1,8 +1,0 @@
-apiVersion: dapr.io/v1alpha1
-kind: Component
-metadata:
-  name: book-trip-workflow
-spec:
-  type: workflow.booktrip
-  version: v1.0-alpha1
-  metadata: {}

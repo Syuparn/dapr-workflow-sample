@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "dRZkvK0zVraMvkXHP4G8xZilPeO5AUPhMKjvMZolSxoXTZzp8xR65ER/fo5g1k2QCeYZ0rajTuLc0Oo/VHjx7g==",
+  "success": true,
+  "projectFilePath": "/home/syuparn/dapr-workflow-sample/worker/worker/worker.csproj",
+  "expectedPackageFiles": [
+    "/home/syuparn/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "/home/syuparn/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/home/syuparn/.nuget/packages/swashbuckle.aspnetcore/6.2.3/swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "/home/syuparn/.nuget/packages/swashbuckle.aspnetcore.swagger/6.2.3/swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "/home/syuparn/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.2.3/swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "/home/syuparn/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.2.3/swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
