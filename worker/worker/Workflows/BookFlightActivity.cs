@@ -3,15 +3,15 @@ using Dapr.Workflow;
 using worker.Workflows.Models;
 
 namespace worker.Workflows.Activities {
-    class BookFlightActivity : WorkflowActivity<BookFlightRequest, BookFlightResult> {
+    public class BookFlightActivity : WorkflowActivity<BookFlightRequest, BookFlightResult> {
         public override async Task<BookFlightResult> RunAsync(WorkflowActivityContext context, BookFlightRequest req)
         {
             Console.WriteLine("BookflightActivity started: city={0} day={1} person={2}", req.City, req.Day, req.Person);
 
-            await Task.Delay(5000);
+            await Task.Delay(500);
             int price = this.TicketPrice(req.City) * req.Person;
 
-            Console.WriteLine("BookflightActivity completed: price={2}", price);
+            Console.WriteLine("BookflightActivity completed: price={0}", price);
 
             return new BookFlightResult(/* success: */ true, price);
         }

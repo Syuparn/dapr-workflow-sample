@@ -1,7 +1,10 @@
+using System.Threading.Tasks;
 using Dapr.Client;
 using Dapr.Workflow;
 using worker.Workflows.Activities;
 using worker.Workflows;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 
 // prepare workflow worker
 // The workflow host is a background service that connects to the sidecar over gRPC
@@ -35,7 +38,4 @@ while (!await daprClient.CheckHealthAsync())
 }
 Console.WriteLine("connected to sidecar");
 
-
-while (true) {
-    // loop infinitely to wait workflows
-}
+host.Run();

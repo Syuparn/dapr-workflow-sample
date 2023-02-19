@@ -10,6 +10,7 @@ namespace worker.Workflows
         public override async Task<BookResult> RunAsync(WorkflowContext context, BookPayload payload)
         {
             string id = context.InstanceId;
+            Console.WriteLine("workflow: InstanceId={0}", context.InstanceId);
 
             // STEP1: book flights
             BookFlightRequest bookFlightRequest = new BookFlightRequest(payload.City, payload.Day, payload.Person);
@@ -30,6 +31,7 @@ namespace worker.Workflows
                 return new BookResult(/* processed: */ false, 0);
             }
 
+            Console.WriteLine("workflow completed");
             return new BookResult(/* processed: */ true, bookFlightResult.Price + bookHotelResult.Price);
         }
     }

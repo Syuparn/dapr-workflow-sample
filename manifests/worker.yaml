@@ -16,6 +16,8 @@ spec:
       annotations:
         dapr.io/enabled: "true"
         dapr.io/app-id: myworker
+        dapr.io/enable-api-logging: "true"
+        dapr.io/log-level: "debug"
     spec:
       containers:
       - name: myworker

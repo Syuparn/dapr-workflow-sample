@@ -2,7 +2,7 @@ namespace worker.Workflows.Models
 {
     // for workflows
     public record BookPayload(string City, string Day, int Person = 1);
-    public record BookResult(bool Processed, int price);
+    public record BookResult(bool Processed, int Price);
 
     // for activities
     public record BookFlightRequest(string City, string Day, int Person = 1);
