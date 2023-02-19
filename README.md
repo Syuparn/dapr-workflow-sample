@@ -8,6 +8,7 @@ Dapr workflow sample (only for experiments)
 ```bash
 $ kind create cluster
 $ skaffold run
+$ kubectl port-forward svc/myworker 3500:3500
 ```
 
 ## Dapr CLI
@@ -15,6 +16,8 @@ $ skaffold run
 ```bash
 $ cd worker/worker
 $ dapr run --app-id myworker --dapr-http-port 3501 dotnet run
+$ curl -XPOST http://localhost:3500/v1.0-alpha1/workflows/dapr/BookingTripWorkflow/1234/start -d '{"input": {"City": "Tokyo", "Day": "Sunday", "Person": 2}}' -H "Content-Type: application/json"
+{"instance_id":"1234"}
 ```
 
 ```bash
