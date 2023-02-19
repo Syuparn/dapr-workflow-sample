@@ -12,6 +12,7 @@ deploy:
         remoteChart: redis
         setValues:
           "replica.replicaCount": 0
+          "master.disableCommands": [] # enable "FLUSHDB","FLUSHALL"
 build:
   tagPolicy:
     envTemplate:

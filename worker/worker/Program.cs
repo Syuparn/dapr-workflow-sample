@@ -20,8 +20,12 @@ var builder = Host.CreateDefaultBuilder(args).ConfigureServices(services =>
     });
 });
 
-// k8s Dapr sidecar uses port 50001
-Environment.SetEnvironmentVariable("DAPR_GRPC_PORT", "50001");
+
+if (string.IsNullOrEmpty(Environment.GetEnvironmentVariable("DAPR_GRPC_PORT")))
+{
+    // k8s Dapr sidecar uses port 50001
+    Environment.SetEnvironmentVariable("DAPR_GRPC_PORT", "50001");
+}
 
 // Start the app - this is the point where we connect to the Dapr sidecar to
 // listen for workflow work-items to execute.

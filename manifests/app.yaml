@@ -17,7 +17,7 @@ spec:
         dapr.io/enabled: "true"
         dapr.io/app-id: myapp
         dapr.io/app-port: "8080"
-#       dapr.io/enable-api-logging: "true"
+        dapr.io/enable-api-logging: "true"
         dapr.io/log-level: "debug"
     spec:
       containers:
