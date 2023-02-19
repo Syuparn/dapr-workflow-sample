@@ -9,7 +9,7 @@ namespace worker.Workflows.Activities {
         {
             Console.WriteLine("BookHotelActivity started: city={0} day={1} person={2}", req.City, req.Day, req.Person);
 
-            await Task.Delay(500);
+            await Task.Delay(5000);
             int price;
             try {
                 price = this.Price(req.Day) * req.Person;

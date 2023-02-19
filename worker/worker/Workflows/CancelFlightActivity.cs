@@ -8,7 +8,7 @@ namespace worker.Workflows.Activities {
         {
             Console.WriteLine("CancelflightActivity started");
 
-            await Task.Delay(500);
+            await Task.Delay(5000);
 
             Console.WriteLine("CancelflightActivity completed");
 
