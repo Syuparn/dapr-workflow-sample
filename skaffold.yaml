@@ -7,6 +7,8 @@ deploy:
         repo: https://dapr.github.io/helm-charts/
         remoteChart: dapr
         version: "1.10"
+        setValues:
+          "dapr_placement.logLevel": debug
       - name: redis
         repo: https://charts.bitnami.com/bitnami
         remoteChart: redis
