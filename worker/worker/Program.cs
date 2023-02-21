@@ -3,6 +3,7 @@ using Dapr.Client;
 using Dapr.Workflow;
 using worker.Workflows.Activities;
 using worker.Workflows;
+using worker.Workflows.Models;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -30,7 +31,6 @@ if (string.IsNullOrEmpty(Environment.GetEnvironmentVariable("DAPR_GRPC_PORT")))
 // Start the app - this is the point where we connect to the Dapr sidecar to
 // listen for workflow work-items to execute.
 using var host = builder.Build();
-host.Start();
 
 using var daprClient = new DaprClientBuilder().Build();
 
@@ -42,4 +42,14 @@ while (!await daprClient.CheckHealthAsync())
 }
 Console.WriteLine("connected to sidecar");
 
-host.Run();
+Thread.Sleep(TimeSpan.FromSeconds(1));
+await host.RunAsync();
+Console.WriteLine("host started");
+
+// Wait a second to allow workflow to start
+await Task.Delay(TimeSpan.FromSeconds(1));
+
+while (true) {
+    await Task.Delay(5000);
+}
+
