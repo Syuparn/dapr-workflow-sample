@@ -24,7 +24,7 @@ namespace worker.Workflows
             BookHotelRequest bookHotelRequest = new BookHotelRequest(payload.City, payload.Day, payload.Person);
             BookHotelResult bookHotelResult = await context.CallActivityAsync<BookHotelResult>(
                 nameof(BookHotelActivity), bookHotelRequest);
-            if (!bookFlightResult.Success) {
+            if (!bookHotelResult.Success) {
                 // conpensating transactions
                 CancelFlightRequest cancelFlightRequest = new CancelFlightRequest(bookFlightResult);
                 await context.CallActivityAsync(nameof(CancelFlightActivity), cancelFlightRequest);
